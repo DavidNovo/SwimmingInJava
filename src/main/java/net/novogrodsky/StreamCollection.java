@@ -16,4 +16,8 @@ public class StreamCollection {
     Stream<String> returnStringStream() {
         return streamOfCollection;
     }
+
+
+    Stream<String> streamBuilder = Stream.<String>builder().add("a").add("b").add("c");
+    
 }

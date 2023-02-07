@@ -38,7 +38,8 @@ class StreamCollectionTest {
         Assertions.assertNotNull(streamUnderTest);
         Assertions.assertTrue(streamUnderTest.anyMatch(element -> element.equals("a")));
 
-        // putting this Assertion here causes and error, stream has already been closed.
+        // putting this Assertion here causes and error, stream has already been closed
+        // because of previous action on the stream.
         // Stream for applying sequence of operations in a functional style to elements,
         // not for data storage
         // Assertions.assertTrue(streamUnderTest.findFirst().equals("a"));

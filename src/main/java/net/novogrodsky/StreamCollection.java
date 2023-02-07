@@ -18,6 +18,10 @@ public class StreamCollection {
     }
 
 
-    Stream<String> streamBuilder = Stream.<String>builder().add("a").add("b").add("c");
-    
+    Stream<String> stream = Stream.<String>builder()
+                .add("a")
+                .add("b")
+                .add("c")
+                .build();
+
 }

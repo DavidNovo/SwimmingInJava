@@ -25,15 +25,22 @@ class StreamCollectionTest {
 
     @Test
     void returnStringCollection() {
-        Collection<String> streamUnderTest;
-        streamUnderTest =objectUnderTest.returnStringCollection();
-        Assertions.assertNotNull(streamUnderTest);
+        Collection<String> collectionUnderTest;
+        collectionUnderTest =objectUnderTest.returnStringCollection();
+        Assertions.assertNotNull(collectionUnderTest);
+        Assertions.assertTrue(collectionUnderTest.contains("a"));
     }
 
     @Test
     void returnStringStream() {
-        Stream<String> collectionUnderTest;
-        collectionUnderTest =objectUnderTest.returnStringStream();
-        Assertions.assertNotNull(collectionUnderTest);
+        Stream<String> streamUnderTest;
+        streamUnderTest =objectUnderTest.returnStringStream();
+        Assertions.assertNotNull(streamUnderTest);
+        Assertions.assertTrue(streamUnderTest.anyMatch(element -> element.equals("a")));
+
+        // putting this Assertion here causes and error, stream has already been closed.
+        // Stream for applying sequence of operations in a functional style to elements,
+        // not for data storage
+        // Assertions.assertTrue(streamUnderTest.findFirst().equals("a"));
     }
 }

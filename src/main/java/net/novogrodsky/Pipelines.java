@@ -13,7 +13,7 @@ public class Pipelines {
     /**
      * Testing populating a stream using iterate
      */
-    Stream<Integer> streamIterated = Stream.iterate(0,n -> n + 2).limit(10);
+    Stream<Integer> streamIterated = Stream.iterate(0, n -> n + 2).limit(10);
 
     public Stream<Integer> getStreamIterated() {
         return streamIterated;
@@ -24,6 +24,8 @@ public class Pipelines {
     }
 
     public void printStreamGenerated() {
+
         streamGenerated.forEach(n -> System.out.println(n));
     }
+
 }

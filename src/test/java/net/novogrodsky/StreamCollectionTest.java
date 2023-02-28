@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Stream;
 
 class StreamCollectionTest {
@@ -26,7 +28,7 @@ class StreamCollectionTest {
     @Test
     void returnStringCollection() {
         Collection<String> collectionUnderTest;
-        collectionUnderTest =objectUnderTest.returnStringCollection();
+        collectionUnderTest = objectUnderTest.returnStringCollection();
         Assertions.assertNotNull(collectionUnderTest);
         Assertions.assertTrue(collectionUnderTest.contains("a"));
     }
@@ -34,7 +36,7 @@ class StreamCollectionTest {
     @Test
     void returnStringStream() {
         Stream<String> streamUnderTest;
-        streamUnderTest =objectUnderTest.returnStringStream();
+        streamUnderTest = objectUnderTest.returnStringStream();
         Assertions.assertNotNull(streamUnderTest);
         Assertions.assertTrue(streamUnderTest.anyMatch(element -> element.equals("a")));
 
@@ -43,5 +45,28 @@ class StreamCollectionTest {
         // Stream for applying sequence of operations in a functional style to elements,
         // not for data storage
         // Assertions.assertTrue(streamUnderTest.findFirst().equals("a"));
+    }
+
+    @Test
+    void returnNewListOfList() {
+        objectUnderTest.returnNewListOfList();
+        // this returns this: [[1, 2, 3], [1, 2, 3], [1, 2, 3]] list notation.
+        // note the commas added
+
+    }
+
+    @Test
+    void returnNewListOfListTwo() {
+        int [][] array =objectUnderTest.returnNewListOfListTwo();
+        System.out.println(Arrays.deepToString(array));
+    }
+
+    @Test
+    void returnNewListOfListThree() {
+        List<List<Integer>> array =objectUnderTest.returnNewListOfListThree();
+        // this returns this: [[1, 2, 3], [2, 4, 6], [3, 5, 7]] list notation.
+        // note the commas added, if this was an array of primitives, then I would get
+        // an object address
+        System.out.println(array.toString());
     }
 }
